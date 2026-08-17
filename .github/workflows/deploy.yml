@@ -1,0 +1,18 @@
+# Push to main -> deploy the repo root to the Cloudflare Pages project
+# "machros" (the existing direct-upload project; no domain move needed).
+# Requires repo secret CLOUDFLARE_API_TOKEN (Cloudflare Pages:Edit).
+name: Deploy to Cloudflare Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: faef1685f24567da835e4c56705d2884
+          command: pages deploy . --project-name machros
