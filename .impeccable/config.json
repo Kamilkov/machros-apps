@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-08-18T16:26:59.441Z",
+        "reason": "lightbox dialog img is intentionally empty until JS sets src on click; hidden inside closed dialog, never rendered as broken"
+      }
+    ]
+  }
+}
