@@ -31,6 +31,10 @@
   .shot { width: 100%; height: auto; border-radius: 12px; margin-top: 1rem;
           border: 1px solid rgba(128,128,128,.2); cursor: zoom-in; }
   .shot-phone { width: auto; max-width: min(280px, 100%); display: block; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: 95vw; max-height: 95vh; }
+  dialog img { max-width: 95vw; max-height: 95vh; width: auto; height: auto;
+               border-radius: 12px; cursor: zoom-out; }
+  dialog::backdrop { background: rgba(0,0,0,.75); }
 </style>
 </head>
 <body>
@@ -41,24 +45,34 @@
   <div class="tag">iPhone</div>
   <h2>Tesouros</h2>
   <p>A personal collections tracker for iPhone. Whiskies, cameras, cafés — anything worth keeping track of, with photos, ratings, notes and tags. Your data lives on your device and in your own iCloud. No accounts, no tracking.</p>
-  <a href="img/tesouros.png"><img class="shot shot-phone" src="img/tesouros.png" alt="Tesouros home screen listing collections — Gadgets, Lenses, Cafés and Whiskies — with photo previews" loading="lazy" width="414" height="900"></a>
+  <a href="img/tesouros.jpg"><img class="shot shot-phone" src="img/tesouros.jpg" alt="Tesouros home screen listing collections — Gadgets, Lenses, Cafés and Whiskies — with photo previews" loading="lazy" width="1206" height="2622"></a>
   <p><span class="soon">Coming to the App Store</span> <a class="aside" href="/tesouros/privacy">Privacy policy</a></p>
 </div>
 <div class="app">
   <div class="tag">macOS</div>
   <h2>JSON Analyzer</h2>
   <p>A fast desktop viewer-editor for large local JSON files. Arrays become sortable tables; values edit in place and save with byte-fidelity. Free version available; Pro adds tabs, filters and a flattened table view.</p>
-  <a href="img/jsonanalyzer.jpg"><img class="shot" src="img/jsonanalyzer.jpg" alt="JSON Analyzer displaying a nested employee JSON file as an expandable grid of tables" loading="lazy" width="1200" height="993"></a>
+  <a href="img/jsonanalyzer.jpg"><img class="shot" src="img/jsonanalyzer.jpg" alt="JSON Analyzer displaying a nested employee JSON file as an expandable grid of tables" loading="lazy" width="2400" height="1987"></a>
   <p><a class="cta" href="https://jsonanalyzer.com/">Visit jsonanalyzer.com</a></p>
 </div>
 <div class="app">
   <div class="tag">macOS 15+ · Free</div>
   <h2>UsageBar</h2>
   <p>A free menu-bar app showing your AI subscription usage vs. time — Claude Code, Codex, Cursor, Antigravity and Copilot on one board. Reads the tokens your CLIs already store; nothing leaves your Mac except calls to each vendor's own API.</p>
-  <a href="img/usagebar.jpg"><img class="shot" src="img/usagebar.jpg" alt="UsageBar board showing rolling, weekly and monthly usage meters for Claude, Antigravity, Codex, Cursor and Copilot" loading="lazy" width="1200" height="785"></a>
+  <a href="img/usagebar.jpg"><img class="shot" src="img/usagebar.jpg" alt="UsageBar board showing rolling, weekly and monthly usage meters for Claude, Antigravity, Codex, Cursor and Copilot" loading="lazy" width="2802" height="1834"></a>
   <p><a class="cta" href="https://github.com/Kamilkov/subscriptions-dashboard/releases/latest">Download from GitHub</a></p>
 </div>
 <footer>machros is the app catalogue of Somil, SLU.<br>
 © 2026 Somil, SLU · <a href="mailto:support@somil-and.com">support@somil-and.com</a></footer>
+<dialog id="zoom" onclick="this.close()"><img src="" alt=""></dialog>
+<script>
+  document.querySelectorAll('a:has(> .shot)').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const img = zoom.querySelector('img');
+    img.src = a.href;
+    img.alt = a.querySelector('img').alt;
+    zoom.showModal();
+  }));
+</script>
 </body>
 </html>
