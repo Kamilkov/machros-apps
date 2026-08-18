@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # ponytail: explicit copy list; add new site files/dirs here or they won't deploy
+      - run: mkdir dist && cp -r index.html og.png img tesouros dist/
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: faef1685f24567da835e4c56705d2884
-          command: pages deploy . --project-name machros
+          command: pages deploy dist --project-name machros
