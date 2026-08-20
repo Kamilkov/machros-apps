@@ -7,6 +7,7 @@ page for Kamil Kovac's apps:
   [`/tesouros/privacy`](https://machros.app/tesouros/privacy)
 - **JSON Analyzer** (macOS) — [jsonanalyzer.com](https://jsonanalyzer.com/)
 - **UsageBar** (macOS) — [github.com/Kamilkov/subscriptions-dashboard](https://github.com/Kamilkov/subscriptions-dashboard)
+- **FanBoost** (macOS) — [github.com/Kamilkov/fanboost](https://github.com/Kamilkov/fanboost)
 
 Static HTML, no build step. The repo root is the deploy directory.
 
